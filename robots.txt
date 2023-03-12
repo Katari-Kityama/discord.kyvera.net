@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /
-Allow: / Katari-Kityama/discord.kyvera.net/tree/gh-pages/
+Disallow:
