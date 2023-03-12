@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Kyvera Klub - Official Discord Server Invite</title>
+    <meta property="og:image" content=""/>
     <meta property="og:title" content="Kyvera Klub - Official Discord Server Invite" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A radiant rift to realms unknown." />
@@ -39,6 +40,7 @@
             var selectedImage = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
 
             document.querySelector('meta[property="og:image"]').setAttribute("content", selectedImage);
+            console.log(selectedImage);
         }
     </script>
 
