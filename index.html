@@ -14,8 +14,36 @@
     
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
     
+    
+  </head>
+
+  <body>
+    <h1>Redirecting...</h1>
+     <div id="counter">5</div>
+    <script>
+        setInterval(function() {
+            var div = document.querySelector("#counter");
+            var count = div.textContent * 1 - 1;
+            div.textContent = count;
+            if (count <= 0) {
+                window.location.replace("https://discord.gg/kyvera");
+            }
+        }, 1000);
+    </script>
+
+
+     <script>
+        function RAND_banner() {
+
+            var bannerColorArray = ["https://i.imgur.com/geyszy5.png","https://i.imgur.com/Ygqlk7h.png"];
+            var selectedImage = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
+
+            document.querySelector('meta[property="og:image"]').setAttribute("content", selectedImage);
+        }
+    </script>
+
     <script type="application/ld+json">
-    {
+     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Kyvera Klub - Official Discord Server Invite",
@@ -33,32 +61,7 @@
         "https://www.reddit.com/user/Katari_2000"
       ]
     }
-  </script>
-    
-    <script>
-        function RAND_banner() {
+   </script>
 
-            var bannerColorArray = ["https://i.imgur.com/geyszy5.png","https://i.imgur.com/Ygqlk7h.png"];
-            var selectedImage = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
-
-            document.querySelector('meta[property="og:image"]').setAttribute("content", selectedImage);
-        }
-    </script>
-  <meta property="og:image" content=selectedImage />
-  </head>
-
-  <body>
-    <h1>Redirecting...</h1>
-     <div id="counter">5</div>
-    <script>
-        setInterval(function() {
-            var div = document.querySelector("#counter");
-            var count = div.textContent * 1 - 1;
-            div.textContent = count;
-            if (count <= 0) {
-                window.location.replace("https://discord.gg/kyvera");
-            }
-        }, 1000);
-    </script>
   </body>
 </html>
