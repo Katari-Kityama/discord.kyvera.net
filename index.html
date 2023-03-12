@@ -39,9 +39,9 @@
         function RAND_banner() {
 
             var bannerColorArray = ["https://i.imgur.com/geyszy5.png","https://i.imgur.com/Ygqlk7h.png"];
-            selectBG = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
+            var selectedImage = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
 
-            document.querySelector('meta[property="og:image"]').setAttribute("content", randomImageLink);
+            document.querySelector('meta[property="og:image"]').setAttribute("content", selectedImage);
         }
     </script>
   </head>
