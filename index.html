@@ -3,20 +3,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Kyvera Klub - Official Discord Server Invite</title>
+    <title>Kyvera Klub - Official Discord Server Invite</title> 
 
     <script>
-        function RAND_banner() {
-
-            var bannerColorArray = ["https://i.imgur.com/geyszy5.png","https://i.imgur.com/Ygqlk7h.png"];
-            var selectedImage = bannerColorArray[Math.floor(Math.random() * bannerColorArray.length)];
-
-            document.querySelector('meta[property="og:image"]').setAttribute("content", selectedImage);
-            console.log(selectedImage);
+     var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://kyvera.000webhostapp.com/randombanner.php', true);
+      xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var metaTag = document.querySelector('meta[property="og:image"]');
+            metaTag.setAttribute('content', this.responseText);
         }
+      };
+      xhr.send();
     </script>
 
-    <meta property="og:image" content="@selectedImage"/>
     <meta property="og:title" content="Kyvera Klub - Official Discord Server Invite" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A radiant rift to realms unknown." />
