@@ -4,21 +4,8 @@
   <head>
     <meta charset="utf-8">
     <title>Kyvera Klub - Official Discord Server Invite</title> 
-    <meta property="og:image" content="" />
-    <script>
-     // List of image URLs
-     var imageUrls = [
-       'https://i.imgur.com/Ygqlk7h.png',
-       'https://i.imgur.com/geyszy5.png',
-      ];
-
-      // Choose a random image URL
-      var imageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
-
-      // Update the image URL in the metadata
-      var imageMetaTag = document.querySelector('meta[property="og:image"]');
-      imageMetaTag.setAttribute('content', imageUrl);
-    </script>
+    <meta property="og:image" content="<?php echo getRandomImageUrl(); ?>">
+   
 
     <meta property="og:title" content="Kyvera Klub - Official Discord Server Invite" />
     <meta property="og:type" content="website" />
@@ -34,6 +21,18 @@
   </head>
 
   <body>
+  
+ <?php
+  function getRandomImageUrl() {
+    $imageUrls = [
+      'https://i.imgur.com/Ygqlk7h.png',
+      'https://i.imgur.com/geyszy5.png'
+    ];
+    $randomIndex = array_rand($imageUrls);
+    return $imageUrls[$randomIndex];
+  }
+  ?>
+
     <h1>Redirecting...</h1>
      <div id="counter">5</div>
     <script>
