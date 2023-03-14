@@ -10,10 +10,12 @@
       xhr.open('GET', 'https://kyvera.000webhostapp.com/randombanner.php', true);
       xhr.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            console.log('Response received:', this.responseText);
             var metaTag = document.querySelector('meta[property="og:image"]');
             metaTag.setAttribute('content', this.responseText);
         }
       };
+      console.log('Making request to randombanner.php');
       xhr.send();
     </script>
 
