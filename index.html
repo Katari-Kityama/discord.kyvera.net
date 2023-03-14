@@ -4,24 +4,22 @@
   <head>
     <meta charset="utf-8">
     <title>Kyvera Klub - Official Discord Server Invite</title> 
-    <meta property="og:image" content="https://kyvera.000webhostapp.com">
-    <meta property="og:image:secure_url" content="https://kyvera.000webhostapp.com">
-    <meta property="og:image:type" content="image/png">
-  <!--  
-  <script>
-     var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://kyvera.000webhostapp.com/randombanner.php', true);
-      xhr.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            console.log('Response received:', this.responseText);
-            var metaTag = document.querySelector('meta[property="og:image"]');
-            metaTag.setAttribute('content', this.responseText);
-        }
-      };
-      console.log('Making request to randombanner.php');
-      xhr.send();
+    <meta property="og:image" content="" />
+    <script>
+     // List of image URLs
+     var imageUrls = [
+       'https://i.imgur.com/Ygqlk7h.png',
+       'https://i.imgur.com/geyszy5.png',
+      ];
+
+      // Choose a random image URL
+      var imageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+
+      // Update the image URL in the metadata
+      var imageMetaTag = document.querySelector('meta[property="og:image"]');
+      imageMetaTag.setAttribute('content', imageUrl);
     </script>
-    -->  
+
     <meta property="og:title" content="Kyvera Klub - Official Discord Server Invite" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A radiant rift to realms unknown." />
