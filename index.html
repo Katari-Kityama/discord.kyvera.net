@@ -43,12 +43,13 @@
 
   <body>
     <h1>Redirecting...</h1>
-     <div id="counter">5</div>
+     <div id="counter">500</div>
+      <div>(placeholder while in dev) https://discord.gg/9cPNGYYKNs</div>
       <img src="selected/selected.png" alt="randimg">
     <script>
         setInterval(function() {
             var div = document.querySelector("#counter");
-            var count = div.textContent * 100 - 1;
+            var count = div.textContent * 1 - 1;
             div.textContent = count;
             if (count <= 0) {
                 window.location.replace("https://discord.gg/9cPNGYYKNs");
