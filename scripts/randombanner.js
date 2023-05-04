@@ -1,25 +1,45 @@
-// First, define the paths to the images and selected folders
-const imagesFolder = '/images/';
-const selectedFolder = '/selected/';
+// Step 1: read text file and save contents to variable
+fetch('/selected/placeholder.txt')
+  .then(response => response.text())
+  .then(text => {
+    const placeholder = text.trim();
 
-// Delete the previous "selected.png" file, if it exists
-const fileSystem = new ActiveXObject("Scripting.FileSystemObject");
-const selectedFilePath = selectedFolder + '\\selected.png';
-if (fileSystem.FileExists(selectedFilePath)) {
-  const selectedFile = fileSystem.GetFile(selectedFilePath);
-  selectedFile.Delete();
-}
+    // Step 2: rename selected.png file
+    fetch(`/images/selected.png?rename=${placeholder}`, { method: 'POST' })
+      .then(response => {
+        if (response.ok) {
+          console.log('Selected image renamed successfully');
+        } else {
+          console.error('Failed to rename selected image');
+        }
 
-// Get all files in the images folder
-const imageFiles = fileSystem.GetFolder(imagesFolder).Files;
+        // Step 3: select random image and save name to placeholder.txt
+        fetch('/images')
+          .then(response => response.text())
+          .then(text => {
+            const images = text.split('\n').filter(file => file.endsWith('.png'));
+            const selected = images[Math.floor(Math.random() * images.length)];
+            fetch('/selected/placeholder.txt', {
+              method: 'PUT',
+              body: selected
+            })
+              .then(response => {
+                if (response.ok) {
+                  console.log('Placeholder file updated successfully');
+                } else {
+                  console.error('Failed to update placeholder file');
+                }
 
-// Select a random image file
-const randomIndex = Math.floor(Math.random() * imageFiles.Count);
-const randomImageFile = imageFiles.Item(randomIndex);
-
-// Move the random image file to the selected folder and rename it
-const selectedFilePathNew = selectedFolder + '\\selected.png';
-randomImageFile.Move(selectedFilePathNew);
-
-// Log a message to confirm the selected file has been moved
-console.log('Selected image file has been moved to the "selected" folder.');
+                // Step 4: rename newly selected image
+                fetch(`/images/${selected}?rename=selected.png`, { method: 'POST' })
+                  .then(response => {
+                    if (response.ok) {
+                      console.log('Newly selected image renamed successfully');
+                    } else {
+                      console.error('Failed to rename newly selected image');
+                    }
+                  });
+              });
+          });
+      });
+  });
