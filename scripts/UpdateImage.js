@@ -2,7 +2,7 @@
 function loadNewImage() {
   // Make an AJAX request to the PHP script
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://kyvera.000webhostapp.com/update-image.php", true);
+  xhr.open("GET", "https://kyvera.000webhostapp.com/UpdateImage.php", true);
   xhr.onload = function() {
     if (xhr.status === 200) {
       // If the request was successful, update the image source on the page
