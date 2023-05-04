@@ -7,7 +7,7 @@ function loadNewImage() {
     if (xhr.status === 200) {
       // If the request was successful, update the image source on the page
       var img = document.getElementById("my-image");
-      img.src = "https://kyvera.000webhostapp.com/images/selected.png?" + new Date().getTime();
+      img.src = "https://kyvera.000webhostapp.com/selected/selected.png?" + new Date().getTime();
     }
   };
   xhr.send();
